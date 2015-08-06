@@ -297,6 +297,9 @@ BOOST_PYTHON_MODULE(_tetgen)
       .def_readonly("facets", &cl::Facets)
       .def_readonly("facet_markers", &cl::FacetMarkers)
 
+      .def_readonly("edges", &cl::Edges)
+      .def_readonly("edge_markers", &cl::EdgeMarkers)
+
       .def_readonly("holes", &cl::Holes)
 
       .def_readonly("regions", &cl::Regions)

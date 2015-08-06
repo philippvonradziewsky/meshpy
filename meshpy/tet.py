@@ -126,6 +126,19 @@ class MeshInfo(internals.MeshInfo, MeshInfoBase):
             else:
                 self.element_volumes[i] = -1
 
+    def set_edges(self, edges, edge_markers=None):
+        if edge_markers is not None:
+            assert len(edge_markers) == len(edges)
+
+        self.edges.resize(len(edges))
+
+        for i, edge in enumerate(edges):
+            self.edges[2*i:2*i+1] = edge
+
+        if edge_markers is not None:
+            self.edge_markers.setup()
+            for i, mark in enumerate(edge_markers):
+                self.edge_markers[i] = mark
 
 class Options(internals.Options):
     def __init__(self, switches, **kwargs):
